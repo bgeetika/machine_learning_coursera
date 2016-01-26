@@ -29,12 +29,9 @@ centroids = zeros(K, n);
 
 for i=1:K
 	arr = find(idx == i);
-	for y = 1:size(arr,1)
-            centroids(i,:) = centroids(i,:) + X(arr(y),:);
-
-	end
-	centroids(i,:) = (1/size(arr,1))*centroids(i,:);
+	centroids(i) = (1/size(arr,1))* sum(X(arr,:))
 end
+
 
 
 

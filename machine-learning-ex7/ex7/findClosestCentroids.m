@@ -10,7 +10,6 @@ K = size(centroids, 1);
 
 % You need to return the following variables correctly.
 idx = zeros(size(X,1), 1);
-
 % ====================== YOUR CODE HERE ======================
 % Instructions: Go over every example, find its closest centroid, and store
 %               the index inside idx at the appropriate location.
@@ -22,6 +21,19 @@ idx = zeros(size(X,1), 1);
 %
 
 
+
+for x = 1: size(X,1)
+	smallest = 0;
+	smallest_value = Inf;
+	for j = 1:K
+		temp = sum((X(x,:) - centroids(j,:)).^2);
+		if (temp < smallest_value)
+		   smallest_value = temp;
+	           smallest = j;
+	        endif
+        end
+        idx(x,1) = smallest;	
+end
 
 
 
